@@ -31,7 +31,6 @@ setup(
         'selenium',
         'allure-pytest',
         'allure-python-commons',
-        'helium'
     ],
     entry_points={
         'pytest11': [

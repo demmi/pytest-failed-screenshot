@@ -6,8 +6,6 @@ import shutil
 import allure
 import pytest
 from selenium.webdriver.remote.webdriver import WebDriver
-from helium import get_driver
-
 
 def pytest_addoption(parser):
     group = parser.getgroup("failed-screenshot", "Screenshot of test case failure")
@@ -45,11 +43,6 @@ def pytest_runtest_makereport(item, call):
             if isinstance(value, WebDriver):
                 instance = True
                 break
-        else:
-            driver = get_driver()
-            if driver:
-                instance = True
-                value = driver
 
     if instance:
         path = item.config.getvalue("screenshot_path")
